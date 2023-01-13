@@ -8,9 +8,9 @@ var quizContainer = document.querySelector("#questions");
 var questionTitle = document.querySelector("#question-title");
 var questionsChoices = document.querySelector("#choices");
 
-var endBlock = document.querySelector("#end-screen")
+var endBlock = document.querySelector("#end-screen");
 
-var feedback = document.querySelector("#feedback")
+var feedback = document.querySelector("#feedback");
 
 // Timer function
 var timeLeft = 75;
@@ -28,11 +28,15 @@ startBtn.addEventListener("click", function () {
   globalTimer();
 });
 
-console.log(questions)
+var quiz = function () {
+  var index = 0;
+  var question = questions[index];
+  questionTitle.textContent = question.question;
+  var answers = question.answers;
 
-for(var i = 0; questions.lengh; i++){
-  var question = questions[i];
-  console.log(question)
-}
+  for (var key in answers) {
+    questionsChoices.innerHTML += `<button>${key}: ${answers[key]}</button>`;
+  }
+};
 
-  console.log("test")
+quiz();

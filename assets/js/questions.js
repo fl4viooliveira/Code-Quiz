@@ -30,7 +30,7 @@ var questions = [
   },
 ];
 
-var jsonQuestions = JSON.stringify(questions)
-
-localStorage.setItem("quizQuestions", jsonQuestions)
+// var jsonQuestions = JSON.stringify(questions)
+//
+// localStorage.setItem("quizQuestions", jsonQuestions)
 
