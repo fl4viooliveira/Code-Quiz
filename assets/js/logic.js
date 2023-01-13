@@ -27,3 +27,12 @@ function globalTimer() {
 startBtn.addEventListener("click", function () {
   globalTimer();
 });
+
+console.log(questions)
+
+for(var i = 0; questions.lengh; i++){
+  var question = questions[i];
+  console.log(question)
+}
+
+  console.log("test")
