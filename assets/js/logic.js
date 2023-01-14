@@ -30,20 +30,34 @@ startBtn.addEventListener("click", function () {
   quizContainer.setAttribute("class", "show");
 });
 
-var quiz = function () {
-  var index = 0;
+console.log(questions)
+
+var index = 0;
+
+function quiz() {
   var question = questions[index];
   questionTitle.textContent = question.question;
+  var buttons = "";
   var answers = question.answers;
+  console.log(Object.keys(answers))
+
+  console.log(question.correctAnswer)
+
 
   for (var key in answers) {
-    questionsChoices.innerHTML += `<button>${key}: ${answers[key]}</button>`;
+    buttons += `<button>${key}. ${answers[key]}</button>`;
+    questionsChoices.innerHTML = buttons;
   }
-};
+}
 
-// startBlock.setAttribute("class", "hide")
-// quizContainer.setAttribute("class", "")
-// endBlock.setAttribute("class", "")
-// feedback.setAttribute("class", "feedback")
-// feedback.textContent("Right")
+questionsChoices.addEventListener("click", function (e) {
+  var userAnswer = e.target;
+  console.log(userAnswer, userAnswer.matches("button"));
+  if (userAnswer.matches("button")) {
+    index++;
+  }
+  console.log(index);
+  quiz();
+});
+
 quiz();
