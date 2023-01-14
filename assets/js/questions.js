@@ -16,6 +16,7 @@ var questions = [
       a: "12",
       b: "3",
       c: "2",
+      d: "none of them",
     },
     correctAnswer: "b",
   },
@@ -25,12 +26,11 @@ var questions = [
       a: "4",
       b: "22",
       c: "44",
+      d: "none of them",
+      e: "all of them",
     },
     correctAnswer: "a",
   },
 ];
 
-// var jsonQuestions = JSON.stringify(questions)
-//
-// localStorage.setItem("quizQuestions", jsonQuestions)
 
