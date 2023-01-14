@@ -8,9 +8,9 @@ var quizContainer = document.querySelector("#questions");
 var questionTitle = document.querySelector("#question-title");
 var questionsChoices = document.querySelector("#choices");
 
-var endBlock = document.querySelector("#end-screen")
+var endBlock = document.querySelector("#end-screen");
 
-var feedback = document.querySelector("#feedback")
+var feedback = document.querySelector("#feedback");
 
 // Timer function
 var timeLeft = 75;
@@ -26,4 +26,24 @@ function globalTimer() {
 
 startBtn.addEventListener("click", function () {
   globalTimer();
+  startBlock.setAttribute("class", "hide");
+  quizContainer.setAttribute("class", "show");
 });
+
+var quiz = function () {
+  var index = 0;
+  var question = questions[index];
+  questionTitle.textContent = question.question;
+  var answers = question.answers;
+
+  for (var key in answers) {
+    questionsChoices.innerHTML += `<button>${key}: ${answers[key]}</button>`;
+  }
+};
+
+// startBlock.setAttribute("class", "hide")
+// quizContainer.setAttribute("class", "")
+// endBlock.setAttribute("class", "")
+// feedback.setAttribute("class", "feedback")
+// feedback.textContent("Right")
+quiz();

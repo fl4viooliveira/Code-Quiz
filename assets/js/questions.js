@@ -8,7 +8,7 @@ var questions = [
       b: "1",
       c: "2",
     },
-    correctAnswer: "c"
+    correctAnswer: "c",
   },
   {
     question: "How much is 1 + 2?",
@@ -17,7 +17,7 @@ var questions = [
       b: "3",
       c: "2",
     },
-    correctAnswer: "b"
+    correctAnswer: "b",
   },
   {
     question: "How much is 2 + 2?",
@@ -26,6 +26,11 @@ var questions = [
       b: "22",
       c: "44",
     },
-    correctAnswer: "a"
+    correctAnswer: "a",
   },
 ];
+
+// var jsonQuestions = JSON.stringify(questions)
+//
+// localStorage.setItem("quizQuestions", jsonQuestions)
+

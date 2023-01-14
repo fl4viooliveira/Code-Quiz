@@ -59,7 +59,7 @@ li:nth-child(odd) {
 }
 
 .hide {
-  /* display: none; */
+  display: none;
 }
 
 .start {
