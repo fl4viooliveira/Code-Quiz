@@ -26,6 +26,8 @@ function globalTimer() {
 
 startBtn.addEventListener("click", function () {
   globalTimer();
+  startBlock.setAttribute("class", "hide");
+  quizContainer.setAttribute("class", "show");
 });
 
 var quiz = function () {
@@ -39,4 +41,9 @@ var quiz = function () {
   }
 };
 
+// startBlock.setAttribute("class", "hide")
+// quizContainer.setAttribute("class", "")
+// endBlock.setAttribute("class", "")
+// feedback.setAttribute("class", "feedback")
+// feedback.textContent("Right")
 quiz();
