@@ -10,39 +10,58 @@ var questionsChoices = document.querySelector("#choices");
 
 var endBlock = document.querySelector("#end-screen");
 
+var finalScore = document.querySelector("#final-score");
+
 var feedback = document.querySelector("#feedback");
 
 // Timer function
 var timeLeft = 75;
+var timer;
 
-function globalTimer() {
-  setInterval(function () {
+function winGame() {
+  endBlock.setAttribute("class", "show");
+  score = timeLeft;
+  finalScore.textContent = score;
+  console.log("Yor score is: " + score);
+}
+
+function loseGame() {
+  console.log("Game Over");
+}
+
+function startTimer() {
+  timer = setInterval(function () {
     timeLeft--;
     timerSpan.textContent = timeLeft;
+    if (timeLeft === 0) {
+      clearInterval(timer);
+      loseGame();
+    }
   }, 1000);
 }
 
-// Start button function
-
+// Start button
 startBtn.addEventListener("click", function () {
-  globalTimer();
+  startTimer();
   startBlock.setAttribute("class", "hide");
   quizContainer.setAttribute("class", "show");
+  feedback.setAttribute("class", "feedback");
 });
 
-console.log(questions)
+console.log(questions);
 
 var index = 0;
+var correctAnswer;
 
 function quiz() {
   var question = questions[index];
   questionTitle.textContent = question.question;
   var buttons = "";
-  var answers = question.answers;
-  console.log(Object.keys(answers))
+  answers = question.answers;
+  correctAnswer = question.correctAnswer;
 
-  console.log(question.correctAnswer)
-
+  console.log(Object.keys(answers));
+  console.log(question.correctAnswer);
 
   for (var key in answers) {
     buttons += `<button>${key}. ${answers[key]}</button>`;
@@ -50,13 +69,34 @@ function quiz() {
   }
 }
 
+var score;
+
 questionsChoices.addEventListener("click", function (e) {
   var userAnswer = e.target;
-  console.log(userAnswer, userAnswer.matches("button"));
+  var btnKey = userAnswer.innerText;
+  var key = btnKey.charAt();
   if (userAnswer.matches("button")) {
-    index++;
+    if (index < questions.length - 1) {
+      if (key === correctAnswer) {
+        feedback.textContent = "Correct!";
+      } else {
+        feedback.textContent = "Wrong!";
+        timeLeft -= 20;
+      }
+      index++;
+    } else {
+      if (key !== correctAnswer) {
+        timeLeft -= 20;
+      }
+      clearInterval(timer);
+      winGame();
+    }
   }
+
+  console.log(userAnswer, userAnswer.matches("button"));
   console.log(index);
+  console.log(btnKey.charAt(0));
+
   quiz();
 });
 
