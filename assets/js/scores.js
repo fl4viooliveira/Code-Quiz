@@ -1,4 +1,5 @@
 var highScores = document.querySelector("#highscores");
+var clearBtn = document.querySelector("#clear");
 
 var scores = [];
 
@@ -32,3 +33,7 @@ scores.reverse();
 
 scoreList();
 
+clearBtn.addEventListener("click", function () {
+  localStorage.clear();
+  location.reload();
+});
