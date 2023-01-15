@@ -22,12 +22,16 @@ var timer;
 
 function winGame() {
   endBlock.setAttribute("class", "show");
+  quizContainer.setAttribute("class", "hide")
+  feedback.setAttribute("class", "hide")
   score = timeLeft;
   finalScore.textContent = score;
   console.log("Yor score is: " + score);
 }
 
 function loseGame() {
+  alert("GAME OVER!\nTry again.")
+  window.open("../../index.html", "_self");
   console.log("Game Over");
 }
 
@@ -78,7 +82,7 @@ questionsChoices.addEventListener("click", function (e) {
   var btnKey = userAnswer.innerText;
   var key = btnKey.charAt();
   if (userAnswer.matches("button")) {
-    if (index < questions.length - 1) {
+    if (index < questions.length - 1 && timeLeft > 0) {
       if (key === correctAnswer) {
         feedback.textContent = "Correct!";
       } else {
@@ -92,6 +96,8 @@ questionsChoices.addEventListener("click", function (e) {
       }
       clearInterval(timer);
       winGame();
+    } if(timeLeft < 0) {
+      loseGame()
     }
   }
 
@@ -118,20 +124,16 @@ function storePlayers() {
   localStorage.setItem("bestScores", JSON.stringify(playerList));
 }
 
-function getInitials(){
-  var initName = initials.value.trim()
-  if(initName === ""){
-    return "ANONIMUS"
+function getInitials() {
+  var initName = initials.value.trim();
+  if (initName === "") {
+    return "ANONIMUS";
   }
-
-  return (initName.substring(0, 3)).toUpperCase();
-  
-  
+  return initName.substring(0, 3).toUpperCase();
 }
 
 scoreBtn.addEventListener("click", function (e) {
   e.preventDefault();
-
 
   var playerObj = {
     player: getInitials(),
