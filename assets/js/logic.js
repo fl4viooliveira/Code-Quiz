@@ -118,10 +118,23 @@ function storePlayers() {
   localStorage.setItem("bestScores", JSON.stringify(playerList));
 }
 
+function getInitials(){
+  var initName = initials.value.trim()
+  if(initName === ""){
+    return "ANONIMUS"
+  }
+
+  return (initName.substring(0, 3)).toUpperCase();
+  
+  
+}
+
 scoreBtn.addEventListener("click", function (e) {
   e.preventDefault();
+
+
   var playerObj = {
-    player: initials.value.trim(),
+    player: getInitials(),
     score: score,
   };
 
