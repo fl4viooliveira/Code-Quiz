@@ -16,6 +16,14 @@ var initials = document.querySelector("#initials");
 
 var feedback = document.querySelector("#feedback");
 
+// Develop
+// var correctSound = new Audio("../../assets/sfx/correct.wav")
+// var wrongSound = new Audio("../../assets/sfx/incorrect.wav")
+
+// Deploy
+var correctSound = new Audio("https://fl4viooliveira.github.io/Code-Quiz/assets/sfx/correct.wav")
+var wrongSound = new Audio("https://fl4viooliveira.github.io/Code-Quiz/assets/sfx/incorrect.wav")
+
 // Timer function
 var timeLeft = 75;
 var timer;
@@ -86,8 +94,10 @@ questionsChoices.addEventListener("click", function (e) {
     if (index < questions.length - 1 && timeLeft > 0) {
       if (key === correctAnswer) {
         feedback.textContent = "Correct!";
+        correctSound.play()
       } else {
         feedback.textContent = "Wrong!";
+        wrongSound.play()
         timeLeft -= 20;
       }
       index++;
