@@ -2,34 +2,44 @@
 
 var questions = [
   {
-    question: "How much is 1 + 1?",
+    question: "What is the purpose of HTML?",
     answers: {
-      a: "11",
-      b: "1",
-      c: "2",
+      a: "To create the layout and structure of a website",
+      b: "To add style and design to a website",
+      c: "To create interactive elements on a website",
+      d: "To manage and organize the backend of a website",
     },
-    correctAnswer: "c",
+    correctAnswer: "a",
   },
   {
-    question: "How much is 1 + 2?",
+    question: "What is the purpose of CSS?",
     answers: {
-      a: "12",
-      b: "3",
-      c: "2",
-      d: "none of them",
+      a: "To create the layout and structure of a website",
+      b: "To add style and design to a website",
+      c: "To create interactive elements on a website",
+      d: "To manage and organize the backend of a website",
     },
     correctAnswer: "b",
   },
   {
-    question: "How much is 2 + 2?",
+    question: "What is the purpose of JavaScript?",
     answers: {
-      a: "4",
-      b: "22",
-      c: "44",
-      d: "none of them",
-      e: "all of them",
+      a: "To create the layout and structure of a website",
+      b: "To add style and design to a website",
+      c: "To create interactive elements on a website",
+      d: "To manage and organize the backend of a website",
     },
-    correctAnswer: "a",
+    correctAnswer: "c",
+  },
+  {
+    question: "What is the purpose of jQuery?",
+    answers: {
+      a: "To create the layout and structure of a website",
+      b: "To add style and design to a website",
+      c: "To create interactive elements on a website",
+      d: "To simplify the use of JavaScript on a website",
+    },
+    correctAnswer: "d",
   },
 ];
 
