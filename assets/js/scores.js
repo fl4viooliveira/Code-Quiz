@@ -3,6 +3,7 @@ var clearBtn = document.querySelector("#clear");
 
 var scores = [];
 
+// Pull localStorage convert to Arra of Objects and push each Object to scores Array
 function getList() {
   if (localStorage.bestScores) {
     var storage = JSON.parse(localStorage.getItem("bestScores"));
@@ -24,8 +25,10 @@ function scoreList() {
     highScores.appendChild(li);
   }
 }
+
 getList();
 
+// Order scores highest first 
 scores.sort(function (a, b) {
   return a.score - b.score;
 });
@@ -33,6 +36,7 @@ scores.reverse();
 
 scoreList();
 
+// Add clear localStorage and reload page to clear button
 clearBtn.addEventListener("click", function () {
   localStorage.clear();
   location.reload();

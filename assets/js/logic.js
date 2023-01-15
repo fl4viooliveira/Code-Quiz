@@ -21,6 +21,7 @@ var feedback = document.querySelector("#feedback");
 // var wrongSound = new Audio("../../assets/sfx/incorrect.wav")
 
 // Deploy
+// Add sound variable
 var correctSound = new Audio(
   "https://fl4viooliveira.github.io/Code-Quiz/assets/sfx/correct.wav"
 );
