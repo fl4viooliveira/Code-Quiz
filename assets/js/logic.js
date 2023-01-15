@@ -11,6 +11,8 @@ var questionsChoices = document.querySelector("#choices");
 var endBlock = document.querySelector("#end-screen");
 
 var finalScore = document.querySelector("#final-score");
+var scoreBtn = document.querySelector("#submit");
+var initials = document.querySelector("#initials");
 
 var feedback = document.querySelector("#feedback");
 
@@ -60,8 +62,8 @@ function quiz() {
   answers = question.answers;
   correctAnswer = question.correctAnswer;
 
-  console.log(Object.keys(answers));
-  console.log(question.correctAnswer);
+  // console.log(Object.keys(answers));
+  // console.log(question.correctAnswer);
 
   for (var key in answers) {
     buttons += `<button>${key}. ${answers[key]}</button>`;
@@ -93,11 +95,43 @@ questionsChoices.addEventListener("click", function (e) {
     }
   }
 
-  console.log(userAnswer, userAnswer.matches("button"));
-  console.log(index);
-  console.log(btnKey.charAt(0));
+  // console.log(userAnswer, userAnswer.matches("button"));
+  // console.log(index);
+  // console.log(btnKey.charAt(0));
 
   quiz();
 });
+
+var playerList = [];
+
+function storage(){
+  if(localStorage.bestScores){
+    var storage = JSON.parse(localStorage.getItem("bestScores"))
+    for(var i = 0; i < storage.length; i++){
+      playerList.push(storage[i])
+    }
+    localStorage.clear()
+  }
+} ;
+
+function storePlayers() {
+  localStorage.setItem("bestScores", JSON.stringify(playerList));
+}
+
+scoreBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  var playerObj = {
+    player: initials.value.trim(),
+    score: score,
+  };
+
+  playerList.push(playerObj);
+
+storage()
+  storePlayers();
+
+  window.open("../../highscores.html", "_self");
+});
+console.log(localStorage.getItem("bestScores"));
 
 quiz();
