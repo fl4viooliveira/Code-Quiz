@@ -32,7 +32,6 @@ function winGame() {
 function loseGame() {
   alert("GAME OVER!\nTry again.")
   window.open("../../index.html", "_self");
-  console.log("Game Over");
 }
 
 function startTimer() {
@@ -145,7 +144,11 @@ scoreBtn.addEventListener("click", function (e) {
   storage();
   storePlayers();
 
-  window.open("../../highscores.html", "_self");
+  // Deployed
+  window.open("../../Code-Quiz/highscores.html", "_self");
+
+  // Develop
+  // window.open("../../highscores.html", "_self");
 });
 console.log(localStorage.getItem("bestScores"));
 
