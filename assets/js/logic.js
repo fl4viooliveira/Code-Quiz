@@ -31,7 +31,9 @@ function winGame() {
 
 function loseGame() {
   alert("GAME OVER!\nTry again.")
-  window.open("../../index.html", "_self");
+  window.open("https://fl4viooliveira.github.io/Code-Quiz/index.html", "_self");
+  // Develop
+  // window.open("../../index.html", "_self");
 }
 
 function startTimer() {
@@ -145,7 +147,7 @@ scoreBtn.addEventListener("click", function (e) {
   storePlayers();
 
   // Deployed
-  window.open("../../Code-Quiz/highscores.html", "_self");
+  window.open("https://fl4viooliveira.github.io/Code-Quiz/highscores.html", "_self");
 
   // Develop
   // window.open("../../highscores.html", "_self");
