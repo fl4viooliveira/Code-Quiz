@@ -104,15 +104,15 @@ questionsChoices.addEventListener("click", function (e) {
 
 var playerList = [];
 
-function storage(){
-  if(localStorage.bestScores){
-    var storage = JSON.parse(localStorage.getItem("bestScores"))
-    for(var i = 0; i < storage.length; i++){
-      playerList.push(storage[i])
+function storage() {
+  if (localStorage.bestScores) {
+    var storage = JSON.parse(localStorage.getItem("bestScores"));
+    for (var i = 0; i < storage.length; i++) {
+      playerList.push(storage[i]);
     }
-    localStorage.clear()
+    localStorage.clear();
   }
-} ;
+}
 
 function storePlayers() {
   localStorage.setItem("bestScores", JSON.stringify(playerList));
@@ -127,7 +127,7 @@ scoreBtn.addEventListener("click", function (e) {
 
   playerList.push(playerObj);
 
-storage()
+  storage();
   storePlayers();
 
   window.open("../../highscores.html", "_self");
